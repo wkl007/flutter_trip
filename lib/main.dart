@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import './navigator/tab_navigator.dart';
 
-void main() => runApp(TestSharedPreferences());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class TestHttp extends StatefulWidget {
+/*class TestHttp extends StatefulWidget {
   @override
   _TestHttpState createState() => _TestHttpState();
 }
@@ -188,4 +188,4 @@ class CommonModel {
       url: json['url'],
       statusBarColor: json['statusBarColor'],
       hideAppBar: json['hideAppBar']);
-}
+}*/
