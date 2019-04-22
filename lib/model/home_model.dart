@@ -1,7 +1,7 @@
-import './config_model.dart';
-import './common_model.dart';
-import './grid_nav_model.dart';
-import './sales_box_model.dart';
+import 'package:flutter_trip/model/common_model.dart';
+import 'package:flutter_trip/model/config_model.dart';
+import 'package:flutter_trip/model/grid_nav_model.dart';
+import 'package:flutter_trip/model/sales_box_model.dart';
 
 class HomeModel {
   final ConfigModel config;

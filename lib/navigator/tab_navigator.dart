@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../pages/home_page.dart';
-import '../pages/travel_page.dart';
-import '../pages/search_page.dart';
-import '../pages/my_page.dart';
+import 'package:flutter_trip/pages/home_page.dart';
+import 'package:flutter_trip/pages/my_page.dart';
+import 'package:flutter_trip/pages/search_page.dart';
+import 'package:flutter_trip/pages/travel_page.dart';
 
 class TabNavigator extends StatefulWidget {
   @override

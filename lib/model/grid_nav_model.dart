@@ -1,4 +1,4 @@
-import './common_model.dart';
+import 'package:flutter_trip/model/common_model.dart';
 
 ///首页网格卡模型
 class GridNavModel {

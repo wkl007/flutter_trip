@@ -1,4 +1,4 @@
-import './common_model.dart';
+import 'package:flutter_trip/model/common_model.dart';
 
 ///活动入口模型
 class SalesBoxModel {
