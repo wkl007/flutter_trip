@@ -29,18 +29,6 @@ class _WebViewState extends State<WebView> {
   StreamSubscription<WebViewHttpError> _onHttpError;
   bool exiting = false;
 
-  //判断url是否是首页
-  bool _isToMain(String url) {
-    bool contain = false;
-    for (final value in CATCH_URLS) {
-      if (url?.endsWith(value) ?? false) {
-        contain = true;
-        break;
-      }
-    }
-    return contain;
-  }
-
   @override
   void initState() {
     super.initState();
@@ -82,11 +70,23 @@ class _WebViewState extends State<WebView> {
 
   @override
   void dispose() {
-    super.dispose();
     _onUrlChanged.cancel();
     _onStateChanged.cancel();
     _onHttpError.cancel();
     webviewReference.dispose();
+    super.dispose();
+  }
+
+  //判断url是否是首页
+  bool _isToMain(String url) {
+    bool contain = false;
+    for (final value in CATCH_URLS) {
+      if (url?.endsWith(value) ?? false) {
+        contain = true;
+        break;
+      }
+    }
+    return contain;
   }
 
   @override
@@ -124,6 +124,7 @@ class _WebViewState extends State<WebView> {
     );
   }
 
+  //自定义appBar
   _appBar(Color backgroundColor, Color backButtonColor) {
     if (widget.hideAppBar ?? false) {
       return Container(
@@ -132,15 +133,20 @@ class _WebViewState extends State<WebView> {
       );
     }
     return Container(
+      color: backButtonColor,
+      padding: EdgeInsets.fromLTRB(0, 40, 0, 10),
       child: FractionallySizedBox(
         widthFactor: 1,
         child: Stack(
           children: <Widget>[
             GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: Container(
                 margin: EdgeInsets.only(left: 10),
                 child: Icon(
-                  Icons.close,
+                  Icons.chevron_left,
                   color: backButtonColor,
                   size: 26,
                 ),
