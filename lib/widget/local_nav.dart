@@ -16,7 +16,7 @@ class LocalNav extends StatelessWidget {
       height: 64,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(6)),
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Padding(
         padding: EdgeInsets.all(7),
