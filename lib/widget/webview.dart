@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
+const CATCH_URLS = ['m.ctrip.com/', 'm.ctrip.com/html5/', 'm.ctrip.com/html5'];
+
 class WebView extends StatefulWidget {
   final String url;
   final String statusBarColor;
@@ -14,7 +16,7 @@ class WebView extends StatefulWidget {
       this.statusBarColor,
       this.title,
       this.hideAppBar,
-      this.backForbid});
+      this.backForbid = false});
 
   @override
   _WebViewState createState() => _WebViewState();
@@ -25,18 +27,44 @@ class _WebViewState extends State<WebView> {
   StreamSubscription<String> _onUrlChanged;
   StreamSubscription<WebViewStateChanged> _onStateChanged;
   StreamSubscription<WebViewHttpError> _onHttpError;
+  bool exiting = false;
+
+  //判断url是否是首页
+  bool _isToMain(String url) {
+    bool contain = false;
+    for (final value in CATCH_URLS) {
+      if (url?.endsWith(value) ?? false) {
+        contain = true;
+        break;
+      }
+    }
+    return contain;
+  }
 
   @override
   void initState() {
     super.initState();
     webviewReference.close();
-    _onUrlChanged = webviewReference.onUrlChanged.listen((String url) {});
+    _onUrlChanged = webviewReference.onUrlChanged.listen((String url) {
+      //对非http获取https链接判断
+      if (url == null || !url.startsWith('http')) {
+        webviewReference.stopLoading();
+      }
+    });
     _onStateChanged =
         webviewReference.onStateChanged.listen((WebViewStateChanged state) {
       switch (state.type) {
         case WebViewState.shouldStart:
           break;
         case WebViewState.startLoad:
+          if (_isToMain(state.url) && !exiting) {
+            if (widget.backForbid) {
+              webviewReference.launch(widget.url);
+            } else {
+              Navigator.pop(context);
+              exiting = true;
+            }
+          }
           break;
         case WebViewState.finishLoad:
           break;
@@ -82,6 +110,7 @@ class _WebViewState extends State<WebView> {
               withZoom: true,
               withLocalStorage: true,
               hidden: true,
+              enableAppScheme: true,
               initialChild: Container(
                 color: Colors.white,
                 child: Center(
@@ -99,7 +128,7 @@ class _WebViewState extends State<WebView> {
     if (widget.hideAppBar ?? false) {
       return Container(
         color: backButtonColor,
-        height: 30,
+        height: 25,
       );
     }
     return Container(
