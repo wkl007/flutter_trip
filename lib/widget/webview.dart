@@ -147,7 +147,7 @@ class _WebViewState extends State<WebView> {
               child: Container(
                 margin: EdgeInsets.only(left: 10),
                 child: Icon(
-                  Icons.chevron_left,
+                  Icons.close,
                   color: backButtonColor,
                   size: 26,
                 ),
