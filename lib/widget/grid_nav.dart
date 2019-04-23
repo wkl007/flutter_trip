@@ -4,9 +4,9 @@ import 'package:flutter_trip/model/grid_nav_model.dart';
 import 'package:flutter_trip/widget/webview.dart';
 
 class GridNav extends StatelessWidget {
-  final GridNavModel gridNavModel;
+  final GridNavModel gridNav;
 
-  const GridNav({Key key, @required this.gridNavModel}) : super(key: key);
+  const GridNav({Key key, @required this.gridNav}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,15 @@ class GridNav extends StatelessWidget {
 
   _gridNavItems(BuildContext context) {
     List<Widget> items = [];
-    if (gridNavModel == null) return items;
-    if (gridNavModel.hotel != null) {
-      items.add(_gridNavItem(context, gridNavModel.hotel, true));
+    if (gridNav == null) return items;
+    if (gridNav.hotel != null) {
+      items.add(_gridNavItem(context, gridNav.hotel, true));
     }
-    if (gridNavModel.flight != null) {
-      items.add(_gridNavItem(context, gridNavModel.flight, false));
+    if (gridNav.flight != null) {
+      items.add(_gridNavItem(context, gridNav.flight, false));
     }
-    if (gridNavModel.travel != null) {
-      items.add(_gridNavItem(context, gridNavModel.travel, false));
+    if (gridNav.travel != null) {
+      items.add(_gridNavItem(context, gridNav.travel, false));
     }
     return items;
   }
