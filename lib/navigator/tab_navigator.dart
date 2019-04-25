@@ -25,6 +25,7 @@ class _TabNavigatorState extends State<TabNavigator> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: _controller,
         children: <Widget>[
           HomePage(),
@@ -34,11 +35,11 @@ class _TabNavigatorState extends State<TabNavigator> {
           TravelPage(),
           MyPage(),
         ],
-        onPageChanged: (index) {
+        /*onPageChanged: (index) {
           setState(() {
             _currentIndex = index;
           });
-        },
+        },*/
       ),
       bottomNavigationBar: BottomNavigationBar(
           selectedFontSize: 12,

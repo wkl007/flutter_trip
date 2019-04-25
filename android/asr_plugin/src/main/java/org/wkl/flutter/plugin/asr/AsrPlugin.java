@@ -3,7 +3,6 @@ package org.wkl.flutter.plugin.asr;
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
-
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -42,10 +41,10 @@ public class AsrPlugin implements MethodChannel.MethodCallHandler {
                 start(methodCall, resultStateful);
                 break;
             case "stop":
-                stop(methodCall,result);
+                stop(methodCall, result);
                 break;
             case "cancel":
-                cancel(methodCall,result);
+                cancel(methodCall, result);
                 break;
             default:
                 result.notImplemented();
@@ -87,20 +86,21 @@ public class AsrPlugin implements MethodChannel.MethodCallHandler {
         }
         return asrManager;
     }
+
     /**
      * android 6.0 以上需要动态申请权限
      */
     private void initPermission() {
         String permissions[] = {Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.ACCESS_NETWORK_STATE,
-            Manifest.permission.INTERNET,
-            Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.INTERNET,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
 
         ArrayList<String> toApplyList = new ArrayList<String>();
 
-        for (String perm :permissions){
+        for (String perm : permissions) {
             if (PackageManager.PERMISSION_GRANTED != ContextCompat.checkSelfPermission(activity, perm)) {
                 toApplyList.add(perm);
                 //进入到这里代表没有权限.
@@ -108,11 +108,12 @@ public class AsrPlugin implements MethodChannel.MethodCallHandler {
             }
         }
         String tmpList[] = new String[toApplyList.size()];
-        if (!toApplyList.isEmpty()){
+        if (!toApplyList.isEmpty()) {
             ActivityCompat.requestPermissions(activity, toApplyList.toArray(tmpList), 123);
         }
 
     }
+
     private OnAsrListener onAsrListener = new OnAsrListener() {
         @Override
         public void onAsrReady() {

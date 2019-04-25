@@ -35,8 +35,9 @@ public interface OnAsrListener {
 
     /**
      * 语音的在线语义结果
-     *
+     * <p>
      * CALLBACK_EVENT_ASR_PARTIAL resultType=nlu_result
+     *
      * @param nluResult
      */
     void onAsrOnlineNluResult(String nluResult);
@@ -52,6 +53,7 @@ public interface OnAsrListener {
 
     /**
      * CALLBACK_EVENT_ASR_FINISH
+     *
      * @param recogResult 完整的结果
      */
     void onAsrFinish(RecogResult recogResult);
@@ -76,14 +78,14 @@ public interface OnAsrListener {
      * 音量回调
      *
      * @param volumePercent 音量的相对值，百分比，0-100
-     * @param volume 音量绝对值
+     * @param volume        音量绝对值
      */
     void onAsrVolume(int volumePercent, int volume);
 
     /**
      * CALLBACK_EVENT_ASR_AUDIO
-     * @param data pcm格式，16bits 16000采样率
      *
+     * @param data   pcm格式，16bits 16000采样率
      * @param offset
      * @param length
      */
