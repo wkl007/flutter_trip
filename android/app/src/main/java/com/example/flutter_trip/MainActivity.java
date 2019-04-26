@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import org.devio.flutter.splashscreen.SplashScreen;
 import org.wkl.flutter.plugin.asr.AsrPlugin;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import io.flutter.plugins.GeneratedPluginRegistrant;
 public class MainActivity extends FlutterActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this, true);// here
         super.onCreate(savedInstanceState);
         GeneratedPluginRegistrant.registerWith(this);
         registerSelfPlugin();

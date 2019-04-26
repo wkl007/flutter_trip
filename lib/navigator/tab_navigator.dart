@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 import 'package:flutter_trip/pages/home_page.dart';
 import 'package:flutter_trip/pages/my_page.dart';
 import 'package:flutter_trip/pages/search_page.dart';
@@ -16,9 +17,22 @@ class _TabNavigatorState extends State<TabNavigator> {
   int _currentIndex = 0;
 
   @override
+  void initState() {
+    hideScreen();
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  //隐藏启动屏
+  Future<void> hideScreen() async {
+    Future.delayed(Duration(milliseconds: 2000), () {
+      FlutterSplashScreen.hide();
+    });
   }
 
   @override
