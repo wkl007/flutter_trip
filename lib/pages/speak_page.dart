@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_trip/pages/search_page.dart';
 import 'package:flutter_trip/plugin/asr_manager.dart';
+import 'package:flutter_trip/util/navigator_util.dart';
 
 ///语言识别
 class SpeakPage extends StatefulWidget {
@@ -48,12 +49,11 @@ class _SpeakPageState extends State<SpeakPage>
           speakResult = text;
         });
         Navigator.pop(context);
-        Navigator.push(
+        NavigatorUtil.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => SearchPage(
-                      keyword: speakResult,
-                    )));
+            SearchPage(
+              keyword: speakResult,
+            ));
       }
     }).catchError((e) {
       print('--------' + e.toString());

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_trip/dao/search_dao.dart';
 import 'package:flutter_trip/model/search_model.dart';
 import 'package:flutter_trip/pages/speak_page.dart';
+import 'package:flutter_trip/util/navigator_util.dart';
 import 'package:flutter_trip/widget/search_bar.dart';
 import 'package:flutter_trip/widget/webview.dart';
 
@@ -73,9 +74,7 @@ class _SearchPageState extends State<SearchPage> {
 
   //跳转语音识别页面
   void _jumpToSpeak() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return SpeakPage();
-    }));
+    NavigatorUtil.push(context, SpeakPage());
   }
 
   @override
@@ -137,13 +136,12 @@ class _SearchPageState extends State<SearchPage> {
     SearchItem item = searchModel.data[position];
     return GestureDetector(
       onTap: () {
-        Navigator.push(
+        NavigatorUtil.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => WebView(
-                      url: item.url,
-                      title: '详情',
-                    )));
+            WebView(
+              url: item.url,
+              title: '详情',
+            ));
       },
       child: Container(
         padding: EdgeInsets.all(10),

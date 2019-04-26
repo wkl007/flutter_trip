@@ -7,6 +7,7 @@ import 'package:flutter_trip/model/home_model.dart';
 import 'package:flutter_trip/model/sales_box_model.dart';
 import 'package:flutter_trip/pages/search_page.dart';
 import 'package:flutter_trip/pages/speak_page.dart';
+import 'package:flutter_trip/util/navigator_util.dart';
 import 'package:flutter_trip/widget/grid_nav.dart';
 import 'package:flutter_trip/widget/loading_container.dart';
 import 'package:flutter_trip/widget/local_nav.dart';
@@ -80,18 +81,16 @@ class _HomePageState extends State<HomePage>
 
   //跳转搜索页面
   void _jumpToSearch() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return SearchPage(
-        hint: SEARCH_BAR_DEFAULT_TEXT,
-      );
-    }));
+    NavigatorUtil.push(
+        context,
+        SearchPage(
+          hint: SEARCH_BAR_DEFAULT_TEXT,
+        ));
   }
 
   //跳转语音识别页面
   void _jumpToSpeak() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return SpeakPage();
-    }));
+    NavigatorUtil.push(context, SpeakPage());
   }
 
   @override
@@ -207,14 +206,13 @@ class _HomePageState extends State<HomePage>
           );
         },
         onTap: (index) {
-          Navigator.push(
+          NavigatorUtil.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => WebView(
-                        url: bannerList[index].url,
-                        hideAppBar: bannerList[index].hideAppBar,
-                        title: bannerList[index].title,
-                      )));
+              WebView(
+                url: bannerList[index].url,
+                hideAppBar: bannerList[index].hideAppBar,
+                title: bannerList[index].title,
+              ));
         },
       ),
     );

@@ -67,17 +67,16 @@ class _TabNavigatorState extends State<TabNavigator> {
           },
           type: BottomNavigationBarType.fixed,
           items: [
-            _bottomNavigationBarItem(Icons.home, '首页', 0),
-            _bottomNavigationBarItem(Icons.search, '搜索', 1),
-            _bottomNavigationBarItem(Icons.camera_alt, '旅拍', 2),
-            _bottomNavigationBarItem(Icons.account_circle, '我的', 3),
+            _bottomItem(Icons.home, '首页', 0),
+            _bottomItem(Icons.search, '搜索', 1),
+            _bottomItem(Icons.camera_alt, '旅拍', 2),
+            _bottomItem(Icons.account_circle, '我的', 3),
           ]),
     );
   }
 
   //底部导航item
-  BottomNavigationBarItem _bottomNavigationBarItem(
-      IconData icon, String title, int index) {
+  BottomNavigationBarItem _bottomItem(IconData icon, String title, int index) {
     return BottomNavigationBarItem(
         icon: Icon(
           icon,
