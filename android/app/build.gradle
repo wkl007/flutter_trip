@@ -46,9 +46,9 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
-//            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64", "x86"
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64", "x86"
 //只打包flutter所支持的架构，flutter没有armeabi架构的so，加x86的原因是为了能够兼容模拟器
-            abiFilters "armeabi-v7a" //release 时只打"armeabi-v7包
+//            abiFilters "armeabi-v7a" //release 时只打"armeabi-v7包
         }
     }
 
@@ -92,4 +92,8 @@ dependencies {
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:appcompat-v7:28.2.1'
     implementation project(path: ':asr_plugin')
+    implementation 'com.umeng.umsdk:common:2.0.0'
+    implementation 'com.umeng.umsdk:utdid:1.1.5.3'
+    implementation 'com.umeng.umsdk:analytics:8.0.0'
+    implementation 'com.umeng.umsdk:push:5.0.2'
 }

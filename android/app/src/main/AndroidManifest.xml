@@ -6,6 +6,15 @@
          In most cases you can leave this as-is, but you if you want to provide
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
@@ -33,5 +42,12 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.3" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5cc2c66a570df33914000e9f" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Flutter Trip" />
     </application>
 </manifest>
