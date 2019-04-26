@@ -42,6 +42,7 @@ class TravelDao {
     String url,
     Map params,
     String groupChannelCode,
+    int type,
     int pageIndex,
     int pageSize,
   ) async {
@@ -49,6 +50,7 @@ class TravelDao {
     paramsMap['pageIndex'] = pageIndex;
     paramsMap['pageSize'] = pageSize;
     params['groupChannelCode'] = groupChannelCode;
+    params['type'] = type;
 
     final response = await http.post(url, body: jsonEncode(params));
 

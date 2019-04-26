@@ -126,18 +126,21 @@ class Extension {
 class TravelTab {
   String labelName;
   String groupChannelCode;
+  int type;
 
-  TravelTab({this.labelName, this.groupChannelCode});
+  TravelTab({this.labelName, this.groupChannelCode, this.type});
 
   TravelTab.fromJson(Map<String, dynamic> json) {
     labelName = json['labelName'];
     groupChannelCode = json['groupChannelCode'];
+    type = json['type'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['labelName'] = this.labelName;
     data['groupChannelCode'] = this.groupChannelCode;
+    data['type'] = this.type;
     return data;
   }
 }

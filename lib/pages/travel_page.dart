@@ -68,6 +68,7 @@ class _TravelPageState extends State<TravelPage>
                     travelUrl: travelTabModel.url,
                     params: travelTabModel.params,
                     groupChannelCode: tab.groupChannelCode,
+                    type: tab.type,
                   );
                 }).toList()),
           )

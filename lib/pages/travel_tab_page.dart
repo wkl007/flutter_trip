@@ -14,9 +14,10 @@ class TravelTabPage extends StatefulWidget {
   final String travelUrl;
   final Map params;
   final String groupChannelCode;
+  final int type;
 
   const TravelTabPage(
-      {Key key, this.travelUrl, this.params, this.groupChannelCode})
+      {Key key, this.travelUrl, this.params, this.groupChannelCode, this.type})
       : super(key: key);
 
   @override
@@ -60,7 +61,7 @@ class _TravelTabPageState extends State<TravelTabPage>
       pageIndex = 1;
     }
     TravelDao.fetch(widget.travelUrl ?? TRAVEL_URL, widget.params,
-            widget.groupChannelCode, pageIndex, PAGE_SIZE)
+            widget.groupChannelCode, widget.type, pageIndex, PAGE_SIZE)
         .then((TravelModel model) {
       setState(() {
         List<TravelItem> items = _filterItems(model.resultList);
