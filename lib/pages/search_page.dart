@@ -20,7 +20,9 @@ const TYPES = [
   'ticket',
   'travelgroup'
 ];
+const SEARCH_BAR_DEFAULT_TEXT = '网红打卡地 景点 酒店 美食';
 
+///搜索页面
 class SearchPage extends StatefulWidget {
   final bool hideLeft;
   final String searchUrl;
@@ -47,7 +49,8 @@ class _SearchPageState extends State<SearchPage> {
     super.initState();
   }
 
-  _onTextChange(String text) async {
+  //输入框文本更改
+  void _onTextChange(String text) async {
     keyword = text;
     if (text.length == 0) {
       setState(() {
@@ -68,7 +71,8 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
-  _jumpToSpeak() {
+  //跳转语音识别页面
+  void _jumpToSpeak() {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return SpeakPage();
     }));
@@ -96,6 +100,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
+  //自定义导航
   Widget get _appBar {
     return Column(
       children: <Widget>[
@@ -113,7 +118,7 @@ class _SearchPageState extends State<SearchPage> {
             child: SearchBar(
               hideLeft: widget.hideLeft,
               defaultText: widget.keyword,
-              hint: widget.hint,
+              hint: widget.hint ?? SEARCH_BAR_DEFAULT_TEXT,
               leftButtonClick: () {
                 Navigator.pop(context);
               },
@@ -126,6 +131,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
+  //搜索item结果
   Widget _item(int position) {
     if (searchModel == null || searchModel.data == null) return null;
     SearchItem item = searchModel.data[position];
@@ -172,6 +178,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
+  //搜索结果图片
   String _typeImage(String type) {
     if (type == null) return 'images/type_travelgroup.png';
     String path = 'travelgroup';
@@ -184,6 +191,7 @@ class _SearchPageState extends State<SearchPage> {
     return 'images/type_$path.png';
   }
 
+  //搜索标题
   Widget _title(SearchItem item) {
     if (item == null) return null;
     List<TextSpan> spans = [];
@@ -198,6 +206,7 @@ class _SearchPageState extends State<SearchPage> {
     return RichText(text: TextSpan(children: spans));
   }
 
+  //搜索副标题
   Widget _subTitle(SearchItem item) {
     if (item == null) return null;
     return RichText(
@@ -212,6 +221,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
+  //关键字高亮处理
   List<TextSpan> _keywordTextSpans(String word, String keyword) {
     List<TextSpan> spans = [];
     if (word == null || word.length == 0) return spans;

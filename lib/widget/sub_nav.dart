@@ -24,7 +24,7 @@ class SubNav extends StatelessWidget {
     );
   }
 
-  _items(BuildContext context) {
+  Widget _items(BuildContext context) {
     if (subNavList == null) return null;
     List<Widget> items = [];
     subNavList.forEach((model) {

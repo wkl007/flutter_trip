@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter_trip/model/home_model.dart';
 import 'package:http/http.dart' as http;
 
-const HOME_URL = 'http://www.devio.org/io/flutter_app/json/home_page.json';
+const HOME_URL = 'https://apk-1256738511.file.myqcloud.com/FlutterTrip/data/home_page.json';
 
 ///首页接口
 class HomeDao {

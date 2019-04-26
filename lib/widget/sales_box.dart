@@ -21,7 +21,7 @@ class SalesBox extends StatelessWidget {
     );
   }
 
-  _items(BuildContext context) {
+  Widget _items(BuildContext context) {
     if (salesBox == null) return null;
     List<Widget> items = [];
     items.add(_doubleItem(

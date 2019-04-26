@@ -18,19 +18,21 @@ import 'package:flutter_trip/widget/webview.dart';
 const APPBAR_SCROLL_OFFSET = 100;
 const SEARCH_BAR_DEFAULT_TEXT = '网红打卡地 景点 酒店 美食';
 
+///首页
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
   double appBarAlpha = 0;
-  List<CommonModel> bannerList = [];
-  List<CommonModel> localNavList = [];
-  GridNavModel gridNav;
-  List<CommonModel> subNavList = [];
-  SalesBoxModel salesBox;
-  bool _loading = true;
+  List<CommonModel> bannerList = []; //轮播图列表
+  List<CommonModel> localNavList = []; //local导航
+  GridNavModel gridNav; //网格卡片
+  List<CommonModel> subNavList = []; //活动导航
+  SalesBoxModel salesBox; //salesBox数据
+  bool _loading = true; //页面加载状态
 
   @override
   void initState() {
@@ -38,7 +40,12 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  _onScroll(offset) {
+  //缓存页面
+  @override
+  bool get wantKeepAlive => true;
+
+  //判断滚动改变透明度
+  void _onScroll(offset) {
     double alpha = offset / APPBAR_SCROLL_OFFSET;
     if (alpha < 0) {
       alpha = 0;
@@ -50,6 +57,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  //加载首页数据
   Future<Null> _handleRefresh() async {
     try {
       HomeModel model = await HomeDao.fetch();
@@ -70,7 +78,8 @@ class _HomePageState extends State<HomePage> {
     return null;
   }
 
-  _jumpToSearch() {
+  //跳转搜索页面
+  void _jumpToSearch() {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return SearchPage(
         hint: SEARCH_BAR_DEFAULT_TEXT,
@@ -78,7 +87,8 @@ class _HomePageState extends State<HomePage> {
     }));
   }
 
-  _jumpToSpeak() {
+  //跳转语音识别页面
+  void _jumpToSpeak() {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return SpeakPage();
     }));
@@ -113,7 +123,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  /*listView列表*/
+  //listView列表
   Widget get _listView {
     return ListView(
       children: <Widget>[

@@ -9,6 +9,7 @@ const TRAVEL_URL =
     'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031014111431397988&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
 const PAGE_SIZE = 10;
 
+///旅拍tab页面
 class TravelTabPage extends StatefulWidget {
   final String travelUrl;
   final Map params;
@@ -52,7 +53,7 @@ class _TravelTabPageState extends State<TravelTabPage>
   bool get wantKeepAlive => true;
 
   //获取数据
-  _loadData({loadMore = false}) {
+  void _loadData({loadMore = false}) {
     if (loadMore) {
       pageIndex++;
     } else {
@@ -61,7 +62,6 @@ class _TravelTabPageState extends State<TravelTabPage>
     TravelDao.fetch(widget.travelUrl ?? TRAVEL_URL, widget.params,
             widget.groupChannelCode, pageIndex, PAGE_SIZE)
         .then((TravelModel model) {
-      _loading = false;
       setState(() {
         List<TravelItem> items = _filterItems(model.resultList);
         if (travelItems != null) {
@@ -69,13 +69,17 @@ class _TravelTabPageState extends State<TravelTabPage>
         } else {
           travelItems = items;
         }
+        _loading = false;
       });
     }).catchError((e) {
-      _loading = false;
       print(e);
+      setState(() {
+        _loading = false;
+      });
     });
   }
 
+  //下拉刷新
   Future<Null> _handleRefresh() async {
     _loadData();
     return null;

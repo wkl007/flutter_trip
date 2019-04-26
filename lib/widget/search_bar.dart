@@ -5,6 +5,7 @@ enum SearchBarType { home, normal, homeLight }
 class SearchBar extends StatefulWidget {
   final bool enabled;
   final bool hideLeft;
+  final bool autofocus;
   final SearchBarType searchBarType;
   final String hint; //默认提示文案
   final String defaultText;
@@ -18,6 +19,7 @@ class SearchBar extends StatefulWidget {
     Key key,
     this.enabled = true,
     this.hideLeft,
+    this.autofocus = false,
     this.searchBarType = SearchBarType.normal,
     this.hint,
     this.defaultText,
@@ -162,7 +164,7 @@ class _SearchBarState extends State<SearchBar> {
                   ? TextField(
                       controller: _controller,
                       onChanged: _onChanged,
-                      autofocus: true,
+                      autofocus: widget.autofocus,
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,
@@ -214,7 +216,7 @@ class _SearchBarState extends State<SearchBar> {
   }
 
   //输入框内容改变
-  _onChanged(String text) {
+  void _onChanged(String text) {
     if (text.length > 0) {
       setState(() {
         showClear = true;

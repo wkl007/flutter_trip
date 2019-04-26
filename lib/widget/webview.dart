@@ -5,18 +5,23 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 const CATCH_URLS = ['m.ctrip.com/', 'm.ctrip.com/html5/', 'm.ctrip.com/html5'];
 
 class WebView extends StatefulWidget {
-  final String url;
+  String url;
   final String statusBarColor;
   final String title;
   final bool hideAppBar;
   final bool backForbid;
 
-  const WebView(
+  WebView(
       {this.url,
       this.statusBarColor,
       this.title,
       this.hideAppBar,
-      this.backForbid = false});
+      this.backForbid = false}) {
+    if (url != null && url.contains('ctrip.com')) {
+      //fix 携程H5 http://无法打开问题
+      url = url.replaceAll("http://", 'https://');
+    }
+  }
 
   @override
   _WebViewState createState() => _WebViewState();
@@ -107,7 +112,8 @@ class _WebViewState extends State<WebView> {
           Expanded(
             child: WebviewScaffold(
               url: widget.url,
-              userAgent: 'null',//防止携程H5页面重定向到打开携程APP ctrip://wireless/xxx的网址
+              userAgent: 'null',
+              //防止携程H5页面重定向到打开携程APP ctrip://wireless/xxx的网址
               withZoom: true,
               withLocalStorage: true,
               hidden: true,
@@ -126,7 +132,7 @@ class _WebViewState extends State<WebView> {
   }
 
   //自定义appBar
-  _appBar(Color backgroundColor, Color backButtonColor) {
+  Widget _appBar(Color backgroundColor, Color backButtonColor) {
     if (widget.hideAppBar ?? false) {
       return Container(
         color: backButtonColor,

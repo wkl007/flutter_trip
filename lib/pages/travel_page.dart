@@ -3,6 +3,7 @@ import 'package:flutter_trip/dao/travel_tab_dao.dart';
 import 'package:flutter_trip/model/travel_tab_model.dart';
 import 'package:flutter_trip/pages/travel_tab_page.dart';
 
+///旅拍页面
 class TravelPage extends StatefulWidget {
   @override
   _TravelPageState createState() => _TravelPageState();

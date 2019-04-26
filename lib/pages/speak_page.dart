@@ -36,7 +36,8 @@ class _SpeakPageState extends State<SpeakPage>
     super.dispose();
   }
 
-  _speakStart() {
+  //开始录音
+  void _speakStart() {
     controller.forward();
     setState(() {
       speakTips = '识别中...';
@@ -59,7 +60,8 @@ class _SpeakPageState extends State<SpeakPage>
     });
   }
 
-  _speakStop() {
+  //结束录音
+  void _speakStop() {
     setState(() {
       speakTips = '长按说话';
     });
@@ -86,6 +88,7 @@ class _SpeakPageState extends State<SpeakPage>
     );
   }
 
+  //顶部item
   Widget get _topItem {
     return Column(
       children: <Widget>[
@@ -113,6 +116,7 @@ class _SpeakPageState extends State<SpeakPage>
     );
   }
 
+  //底部item
   Widget get _bottomItem {
     return FractionallySizedBox(
       widthFactor: 1,
@@ -178,6 +182,7 @@ class _SpeakPageState extends State<SpeakPage>
 
 const double MIC_SIZE = 80;
 
+///圆球动画
 class AnimatedMic extends AnimatedWidget {
   static final _operatyTween = Tween<double>(begin: 1, end: 0.5);
   static final _sizeTween = Tween<double>(begin: MIC_SIZE, end: MIC_SIZE - 20);

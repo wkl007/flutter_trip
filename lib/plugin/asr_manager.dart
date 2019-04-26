@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 
+///百度ai语音flutter方法
 class AsrManager {
   static const MethodChannel _channel = const MethodChannel('asr_plugin');
 

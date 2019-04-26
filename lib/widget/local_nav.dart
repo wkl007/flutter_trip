@@ -25,7 +25,7 @@ class LocalNav extends StatelessWidget {
     );
   }
 
-  _items(BuildContext context) {
+  Widget _items(BuildContext context) {
     if (localNavList == null) return null;
     List<Widget> items = [];
     localNavList.forEach((model) {
