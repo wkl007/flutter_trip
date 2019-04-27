@@ -1,4 +1,4 @@
-package org.wkl.flutter.plugin.asr;
+package com.wkl.asr_plugin;
 
 import android.Manifest;
 import android.app.Activity;

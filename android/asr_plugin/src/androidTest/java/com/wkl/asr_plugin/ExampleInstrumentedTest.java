@@ -1,4 +1,4 @@
-package com.example.asr_plugin;
+package com.wkl.asr_plugin;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.asr_plugin.test", appContext.getPackageName());
+        assertEquals("com.wkl.asr_plugin.test", appContext.getPackageName());
     }
 }

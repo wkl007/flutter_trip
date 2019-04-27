@@ -29,7 +29,6 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
-
 android {
     compileSdkVersion 28
 
@@ -39,16 +38,16 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.flutter_trip"
+        applicationId "com.wkl.flutter_trip"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
-//            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64", "x86"
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64", "x86"
 //只打包flutter所支持的架构，flutter没有armeabi架构的so，加x86的原因是为了能够兼容模拟器
-            abiFilters "armeabi-v7a" //release 时只打"armeabi-v7包
+//            abiFilters "armeabi-v7a" //release 时只打"armeabi-v7包
         }
     }
 
@@ -66,13 +65,13 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
-            minifyEnabled true
-            //是否启用代码压缩 需要将targetSdkVersion 和 compileSdkVersion 升级到 28 @https://github.com/flutter/flutter/issues/26860#issuecomment-469751224
+            /*minifyEnabled true
             useProguard true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'*/
         }
     }
 
+    //百度语音集成添加
     packagingOptions {
         // 确保app与asr_plugin都依赖的libflutter.so merge时不冲突@https://github.com/card-io/card.io-Android-SDK/issues/186#issuecomment-427552552
         pickFirst 'lib/x86_64/libflutter.so'
@@ -89,8 +88,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support:appcompat-v7:28.2.1'
+    implementation 'com.android.support:support-compat:28.0.0'
     implementation project(path: ':asr_plugin')
     implementation 'com.umeng.umsdk:common:2.0.0'
     implementation 'com.umeng.umsdk:utdid:1.1.5.3'

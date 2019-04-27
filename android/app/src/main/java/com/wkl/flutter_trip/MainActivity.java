@@ -1,4 +1,4 @@
-package com.example.flutter_trip;
+package com.wkl.flutter_trip;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -8,18 +8,19 @@ import android.util.Log;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
+import com.wkl.asr_plugin.AsrPlugin;
+
 import org.devio.flutter.splashscreen.SplashScreen;
-import org.wkl.flutter.plugin.asr.AsrPlugin;
 
 import java.util.ArrayList;
 
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
-import com.umeng.analytics.MobclickAgent;
-import com.umeng.commonsdk.UMConfigure;
-import com.umeng.message.IUmengRegisterCallback;
-import com.umeng.message.PushAgent;
 
 public class MainActivity extends FlutterActivity {
     @Override
@@ -28,11 +29,23 @@ public class MainActivity extends FlutterActivity {
         super.onCreate(savedInstanceState);
         GeneratedPluginRegistrant.registerWith(this);
         registerSelfPlugin();
-        initPermission();
+//        initPermission();
+        initUmengPlugin();
+    }
 
+    //百度语音监听
+    private void registerSelfPlugin() {
+        AsrPlugin.registerWith(registrarFor("com.wkl.asr_plugin.AsrPlugin"));
+    }
 
-        // 注意：如果您已经在AndroidManifest.xml中配置过appkey和channel值，可以调用此版本初始化函数。
-        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "");
+    //友盟统计初始化
+    private void initUmengPlugin() {
+        /**
+         * 注意: 即使您已经在AndroidManifest.xml中配置过appkey和channel值，也需要在App代码中调
+         * 用初始化接口（如需要使用AndroidManifest.xml中配置好的appkey和channel值，
+         * UMConfigure.init调用中appkey和channel参数请置为null）。
+         */
+        UMConfigure.init(this, "5cc2c66a570df33914000e9f", "Flutter Trip", UMConfigure.DEVICE_TYPE_PHONE, null);
         // interval: 单位是毫秒，默认Session间隔时间是30秒
         MobclickAgent.setSessionContinueMillis(30000);
 
@@ -64,10 +77,6 @@ public class MainActivity extends FlutterActivity {
     public void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
-    }
-
-    private void registerSelfPlugin() {
-        AsrPlugin.registerWith(registrarFor("org.wkl.flutter.plugin.asr.AsrPlugin"));
     }
 
     /**

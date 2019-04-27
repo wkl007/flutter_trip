@@ -1,4 +1,4 @@
-package org.wkl.flutter.plugin.asr;
+package com.wkl.asr_plugin;
 
 /**
  * 与SDK中回调参数的对应关系定义在RecogEventAdapter类中

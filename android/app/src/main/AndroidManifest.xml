@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_trip">
+    package="com.wkl.flutter_trip">
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -18,7 +18,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
-        android:label="flutter之旅">
+        android:label="Flutter之旅">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -38,16 +38,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--适配全面屏-->
-        <meta-data
-            android:name="android.max_aspect"
-            android:value="2.3" />
-
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="5cc2c66a570df33914000e9f" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="Flutter Trip" />
     </application>
 </manifest>

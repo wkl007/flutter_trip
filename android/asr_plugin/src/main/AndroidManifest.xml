@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.asr_plugin">
+    package="com.wkl.asr_plugin">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,12 +14,12 @@
 
         <meta-data
             android:name="com.baidu.speech.APP_ID"
-            android:value="16103138" />
+            android:value="16122399" />
         <meta-data
             android:name="com.baidu.speech.API_KEY"
-            android:value="bYqa5GRliLjv6vx09Q1IOc0q" />
+            android:value="M71daCPLk074WyHQGC0pL2G0" />
         <meta-data
             android:name="com.baidu.speech.SECRET_KEY"
-            android:value="dezmDuSF8w0Dn58EQHxmdREaroYUxCem" />
+            android:value="KajKRvZCOmFAQCtgw8QqAAXb8a9FRwm8" />
     </application>
 </manifest>

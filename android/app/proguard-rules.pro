@@ -19,23 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
-# 注意！！！要配置在 /android/app/proguard-rules.pro中
 -keep class com.baidu.speech.**{*;}
-
-
--keepclassmembers class * {
-   public <init> (org.json.JSONObject);
-}
--keep public class [com.example.flutter_trip].R$*{
-    public static final int *;
-}
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
--keep class com.umeng.** {*;}
-
 #Flutter Wrapper
 -keep class io.flutter.app.** { *; }
 -keep class io.flutter.plugin.**  { *; }

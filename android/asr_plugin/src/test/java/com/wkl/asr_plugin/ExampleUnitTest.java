@@ -1,4 +1,4 @@
-package com.example.asr_plugin;
+package com.wkl.asr_plugin;
 
 import org.junit.Test;
 
