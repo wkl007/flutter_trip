@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_trip/model/common_model.dart';
 import 'package:flutter_trip/util/navigator_util.dart';
+import 'package:flutter_trip/widget/cached_image.dart';
 import 'package:flutter_trip/widget/webview.dart';
 
 class LocalNav extends StatelessWidget {
@@ -52,8 +53,8 @@ class LocalNav extends StatelessWidget {
       },
       child: Column(
         children: <Widget>[
-          Image.network(
-            model.icon,
+          CachedImage(
+            imageUrl: model.icon,
             width: 32,
             height: 32,
           ),

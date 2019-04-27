@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_trip/model/common_model.dart';
 import 'package:flutter_trip/model/sales_box_model.dart';
 import 'package:flutter_trip/util/navigator_util.dart';
+import 'package:flutter_trip/widget/cached_image.dart';
 import 'package:flutter_trip/widget/webview.dart';
 
 class SalesBox extends StatelessWidget {
@@ -42,8 +43,8 @@ class SalesBox extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Image.network(
-                salesBox.icon,
+              CachedImage(
+                imageUrl: salesBox.icon,
                 height: 15,
                 fit: BoxFit.fill,
               ),
@@ -119,8 +120,8 @@ class SalesBox extends StatelessWidget {
               border: Border(
                   right: isLeft ? borderSide : BorderSide.none,
                   bottom: isLast ? BorderSide.none : borderSide)),
-          child: Image.network(
-            model.icon,
+          child: CachedImage(
+            imageUrl: model.icon,
             fit: BoxFit.fill,
             width: MediaQuery.of(context).size.width / 2 - 8,
             height: isBig ? 129 : 80,

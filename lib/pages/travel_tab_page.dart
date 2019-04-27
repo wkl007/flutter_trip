@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_trip/dao/travel_dao.dart';
 import 'package:flutter_trip/model/travel_model.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_trip/util/navigator_util.dart';
 import 'package:flutter_trip/widget/loading_container.dart';
 import 'package:flutter_trip/widget/webview.dart';
+import 'package:flutter_trip/widget/cached_image.dart';
 
 const TRAVEL_URL =
     'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031014111431397988&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
@@ -171,7 +172,10 @@ class _TravelItem extends StatelessWidget {
   Widget get _itemImage {
     return Stack(
       children: <Widget>[
-        Image.network(item.article.images[0]?.dynamicUrl),
+        CachedImage(
+          inSizedBox: true,
+          imageUrl: item.article.images[0]?.dynamicUrl,
+        ),
         Positioned(
           bottom: 8,
           left: 8,
@@ -220,8 +224,8 @@ class _TravelItem extends StatelessWidget {
                 color: Colors.transparent,
                 clipBehavior: Clip.antiAlias,
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  item.article.author?.coverImage?.dynamicUrl,
+                child: CachedImage(
+                  imageUrl: item.article.author?.coverImage?.dynamicUrl,
                   width: 24,
                   height: 24,
                 ),
