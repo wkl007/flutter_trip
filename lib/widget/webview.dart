@@ -121,7 +121,7 @@ class _WebViewState extends State<WebView> {
               initialChild: Container(
                 color: Colors.white,
                 child: Center(
-                  child: Text('Waiting...'),
+                  child: CircularProgressIndicator(),
                 ),
               ),
             ),
