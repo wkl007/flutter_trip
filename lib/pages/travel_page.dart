@@ -17,18 +17,7 @@ class _TravelPageState extends State<TravelPage>
 
   @override
   void initState() {
-    _controller = TabController(length: 0, vsync: this);
-    TravelTabDao.fetch().then((TravelTabModel model) {
-      _controller = TabController(
-          length: model.tabs.length, vsync: this); //fix tab label 空白问题
-      print(model.tabs.length);
-      setState(() {
-        tabs = model.tabs;
-        travelTabModel = model;
-      });
-    }).catchError((e) {
-      print(e);
-    });
+    _loadData();
     super.initState();
   }
 
@@ -36,6 +25,22 @@ class _TravelPageState extends State<TravelPage>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  //初始化tab数据
+  void _loadData() async {
+    _controller = TabController(length: 0, vsync: this);
+    try {
+      TravelTabModel model = await TravelTabDao.fetch();
+      _controller = TabController(
+          length: model.tabs.length, vsync: this); //fix tab label 空白问题
+      setState(() {
+        tabs = model.tabs;
+        travelTabModel = model;
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override

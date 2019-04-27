@@ -56,15 +56,20 @@ class _TravelTabPageState extends State<TravelTabPage>
   bool get wantKeepAlive => true;
 
   //获取数据
-  void _loadData({loadMore = false}) {
+  void _loadData({loadMore = false}) async {
     if (loadMore) {
       pageIndex++;
     } else {
       pageIndex = 1;
     }
-    TravelDao.fetch(widget.travelUrl ?? TRAVEL_URL, widget.params,
-            widget.groupChannelCode, widget.type, pageIndex, PAGE_SIZE)
-        .then((TravelModel model) {
+    try {
+      TravelModel model = await TravelDao.fetch(
+          widget.travelUrl ?? TRAVEL_URL,
+          widget.params,
+          widget.groupChannelCode,
+          widget.type,
+          pageIndex,
+          PAGE_SIZE);
       setState(() {
         List<TravelItem> items = _filterItems(model.resultList);
         if (travelItems != null) {
@@ -74,12 +79,12 @@ class _TravelTabPageState extends State<TravelTabPage>
         }
         _loading = false;
       });
-    }).catchError((e) {
+    } catch (e) {
       print(e);
       setState(() {
         _loading = false;
       });
-    });
+    }
   }
 
   //下拉刷新
