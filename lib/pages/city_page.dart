@@ -56,6 +56,7 @@ class _CityPageState extends State<CityPage> {
     SuspensionUtil.sortListBySuspensionTag(_cityList);
   }
 
+  //tag更改
   void _onSusTagChanged(String tag) {
     setState(() {
       _suspensionTag = tag;
@@ -130,6 +131,7 @@ class _CityPageState extends State<CityPage> {
     );
   }
 
+  //自定义头部
   Widget _buildHeader() {
     List<CityInfo> hotCityList = List();
     hotCityList.addAll([
@@ -152,7 +154,7 @@ class _CityPageState extends State<CityPage> {
             child: Text(e.name),
             onPressed: () {
               print("OnItemClick: $e");
-//              Navigator.pop(context, e);
+              Navigator.pop(context, e.name);
             },
           );
         }).toList(),
@@ -160,6 +162,7 @@ class _CityPageState extends State<CityPage> {
     );
   }
 
+  //自定义tag
   Widget _buildSusWidget(String susTag) {
     return Container(
       height: _suspensionHeight.toDouble(),
@@ -177,6 +180,7 @@ class _CityPageState extends State<CityPage> {
     );
   }
 
+  //自定义item
   Widget _buildListItem(CityInfo model) {
     String susTag = model.getSuspensionTag();
     return Column(
@@ -191,7 +195,7 @@ class _CityPageState extends State<CityPage> {
             title: Text(model.name),
             onTap: () {
               print("OnItemClick: $model");
-//              Navigator.pop(context, model);
+              Navigator.pop(context, model.name);
             },
           ),
         )

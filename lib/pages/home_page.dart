@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage>
   List<CommonModel> subNavList = []; //活动导航
   SalesBoxModel salesBox; //salesBox数据
   bool _loading = true; //页面加载状态
+  String city = '西安市';
 
   @override
   void initState() {
@@ -82,8 +83,11 @@ class _HomePageState extends State<HomePage>
   }
 
   //跳转到城市列表
-  void _jumpToCity() {
-    NavigatorUtil.push(context, CityPage());
+  void _jumpToCity() async {
+    final result = await NavigatorUtil.push(context, CityPage());
+    setState(() {
+      city = result;
+    });
   }
 
   //跳转搜索页面
@@ -185,6 +189,7 @@ class _HomePageState extends State<HomePage>
               speakClick: _jumpToSpeak,
               defaultText: SEARCH_BAR_DEFAULT_TEXT,
               leftButtonClick: _jumpToCity,
+              city: city,
             ),
           ),
         ),

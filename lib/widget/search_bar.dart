@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 enum SearchBarType { home, normal, homeLight }
 
 class SearchBar extends StatefulWidget {
+  final String city;
   final bool enabled;
   final bool hideLeft;
   final bool autofocus;
@@ -28,6 +29,7 @@ class SearchBar extends StatefulWidget {
     this.speakClick,
     this.inputBoxClick,
     this.onChanged,
+    this.city,
   }) : super(key: key);
 
   @override
@@ -97,7 +99,7 @@ class _SearchBarState extends State<SearchBar> {
                   child: Row(
                     children: <Widget>[
                       Text(
-                        '西安',
+                        widget.city,
                         style: TextStyle(color: _homeFontColor, fontSize: 14),
                       ),
                       Icon(
