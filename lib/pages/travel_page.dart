@@ -10,7 +10,7 @@ class TravelPage extends StatefulWidget {
 }
 
 class _TravelPageState extends State<TravelPage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   TabController _controller;
   List<TravelTab> tabs = [];
   TravelTabModel travelTabModel;

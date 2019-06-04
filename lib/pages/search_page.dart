@@ -178,7 +178,7 @@ class _SearchPageState extends State<SearchPage> {
 
   //搜索结果图片
   String _typeImage(String type) {
-    if (type == null) return 'images/type_travelgroup.png';
+    if (type == null) return 'assets/images/type_travelgroup.png';
     String path = 'travelgroup';
     for (final val in TYPES) {
       if (type.contains(val)) {
@@ -186,7 +186,7 @@ class _SearchPageState extends State<SearchPage> {
         break;
       }
     }
-    return 'images/type_$path.png';
+    return 'assets/images/type_$path.png';
   }
 
   //搜索标题

@@ -7,7 +7,7 @@ packages:
       name: async
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -21,7 +21,7 @@ packages:
       name: cached_network_image
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.7.0"
+    version: "0.8.0"
   charcode:
     dependency: transitive
     description:
@@ -89,7 +89,7 @@ packages:
       name: flutter_staggered_grid_view
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.2.7"
+    version: "0.3.0"
   flutter_swiper:
     dependency: "direct main"
     description:
@@ -108,7 +108,7 @@ packages:
       name: flutter_webview_plugin
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.4"
+    version: "0.3.5"
   http:
     dependency: "direct main"
     description:
@@ -164,7 +164,7 @@ packages:
       name: quiver
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.3"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -225,7 +225,7 @@ packages:
       name: test_api
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.2.4"
+    version: "0.2.5"
   transformer_page_view:
     dependency: transitive
     description:
@@ -256,4 +256,4 @@ packages:
     version: "2.0.8"
 sdks:
   dart: ">=2.2.0 <3.0.0"
-  flutter: ">=1.2.1 <2.0.0"
+  flutter: ">=1.6.0 <2.0.0"
