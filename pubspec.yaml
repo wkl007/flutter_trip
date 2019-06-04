@@ -22,6 +22,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  azlistview: ^0.1.1
   cupertino_icons: ^0.1.2
   cached_network_image: ^0.8.0
   dio: ^2.1.6
@@ -29,6 +30,7 @@ dependencies:
   flutter_staggered_grid_view: ^0.3.0
   flutter_splash_screen: ^0.1.0
   flutter_webview_plugin: ^0.3.5
+  lpinyin: ^1.0.7
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +50,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/data/
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see

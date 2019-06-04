@@ -5,6 +5,7 @@ import 'package:flutter_trip/model/common_model.dart';
 import 'package:flutter_trip/model/grid_nav_model.dart';
 import 'package:flutter_trip/model/home_model.dart';
 import 'package:flutter_trip/model/sales_box_model.dart';
+import 'package:flutter_trip/pages/city_page.dart';
 import 'package:flutter_trip/pages/search_page.dart';
 import 'package:flutter_trip/pages/speak_page.dart';
 import 'package:flutter_trip/util/navigator_util.dart';
@@ -78,6 +79,11 @@ class _HomePageState extends State<HomePage>
       });
     }
     return null;
+  }
+
+  //跳转到城市列表
+  void _jumpToCity() {
+    NavigatorUtil.push(context, CityPage());
   }
 
   //跳转搜索页面
@@ -178,7 +184,7 @@ class _HomePageState extends State<HomePage>
               inputBoxClick: _jumpToSearch,
               speakClick: _jumpToSpeak,
               defaultText: SEARCH_BAR_DEFAULT_TEXT,
-              leftButtonClick: () {},
+              leftButtonClick: _jumpToCity,
             ),
           ),
         ),
