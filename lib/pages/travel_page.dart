@@ -55,7 +55,7 @@ class _TravelPageState extends State<TravelPage>
                 controller: _controller,
                 isScrollable: true,
                 labelColor: Colors.black,
-                labelPadding: EdgeInsets.fromLTRB(20, 0, 10, 5),
+                labelPadding: EdgeInsets.fromLTRB(20, 0, 20, 5),
                 indicator: UnderlineTabIndicator(
                     borderSide: BorderSide(color: Color(0xff1fcfbb), width: 3),
                     insets: EdgeInsets.only(bottom: 10)),

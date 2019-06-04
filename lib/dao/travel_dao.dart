@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_trip/model/travel_model.dart';
-import 'package:http/http.dart' as http;
 
 const TRAVEL_URL =
     'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031010211161114530&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
@@ -52,12 +51,10 @@ class TravelDao {
     params['groupChannelCode'] = groupChannelCode;
     params['type'] = type;
 
-    final response = await http.post(url, body: jsonEncode(params));
+    Response response = await Dio().post(url, data: params);
 
     if (response.statusCode == 200) {
-      Utf8Decoder utf8decoder = Utf8Decoder(); //fix中文乱码
-      final result = json.decode(utf8decoder.convert(response.bodyBytes));
-      return TravelModel.fromJson(result);
+      return TravelModel.fromJson(response.data);
     } else {
       throw Exception('Failed to load travel_page.json');
     }

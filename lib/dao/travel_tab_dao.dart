@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_trip/model/travel_tab_model.dart';
-import 'package:http/http.dart' as http;
 
 const TRAVEL_TAB_URL =
     'https://apk-1256738511.file.myqcloud.com/FlutterTrip/data/travel_page.json';
@@ -10,11 +9,9 @@ const TRAVEL_TAB_URL =
 ///旅拍类别接口
 class TravelTabDao {
   static Future<TravelTabModel> fetch() async {
-    final response = await http.get(TRAVEL_TAB_URL);
+    Response response = await Dio().get(TRAVEL_TAB_URL);
     if (response.statusCode == 200) {
-      Utf8Decoder utf8decoder = Utf8Decoder(); //fix中文乱码
-      final result = json.decode(utf8decoder.convert(response.bodyBytes));
-      return TravelTabModel.fromJson(result);
+      return TravelTabModel.fromJson(response.data);
     } else {
       throw Exception('Failed to load travel_page.json');
     }
