@@ -5,6 +5,7 @@ import 'package:flutter_trip/pages/my_page.dart';
 import 'package:flutter_trip/pages/search_page.dart';
 import 'package:flutter_trip/pages/travel_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:package_info/package_info.dart';
 
 class TabNavigator extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _TabNavigatorState extends State<TabNavigator> {
   @override
   void initState() {
     hideScreen();
+    getPackageInfo();
     super.initState();
   }
 
@@ -66,6 +68,17 @@ class _TabNavigatorState extends State<TabNavigator> {
                     child: new Text("确定"))
               ],
             ));*/
+  }
+
+  //获取packageInfo
+  void getPackageInfo() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    String appName = packageInfo.appName;
+    String packageName = packageInfo.packageName;
+    String version = packageInfo.version;
+    String buildNumber = packageInfo.buildNumber;
+    print(
+        'appName:$appName,packageName:$packageName,version:$version,buildNumber:$buildNumber}');
   }
 
   @override
