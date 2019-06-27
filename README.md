@@ -29,7 +29,7 @@
 
 ## 插件使用
 
-- [azlistview ^0.1.1](https://pub.flutter-io.cn/packages/azlistview)
+- [azlistview ^0.1.2](https://pub.flutter-io.cn/packages/azlistview)
 - [cached_network_image ^0.8.0](https://pub.flutter-io.cn/packages/cached_network_image)
 - [dio ^2.1.7](https://pub.flutter-io.cn/packages/dio)
 - [flutter_swiper ^1.1.6](https://pub.flutter-io.cn/packages/flutter_swiper)
