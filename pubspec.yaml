@@ -25,14 +25,14 @@ dependencies:
   azlistview: ^0.1.2
   cupertino_icons: ^0.1.2
   cached_network_image: ^0.8.0
-  dio: ^2.1.7
+  dio: ^2.1.13
   flutter_swiper: ^1.1.6
   flutter_staggered_grid_view: ^0.3.0
   flutter_splash_screen: ^0.1.0
   fluttertoast: ^3.1.0
-  flutter_webview_plugin: ^0.3.5
+  flutter_webview_plugin: ^0.3.7
   lpinyin: ^1.0.7
-  package_info: ^0.4.0+4
+  package_info: ^0.4.0+6
 
 dev_dependencies:
   flutter_test:

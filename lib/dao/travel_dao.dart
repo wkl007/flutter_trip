@@ -6,7 +6,7 @@ import 'package:flutter_trip/model/travel_model.dart';
 const TRAVEL_URL =
     'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031010211161114530&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
 
-var Params = {
+var params = {
   "districtId": -1,
   "groupChannelCode": "tourphoto_global1",
   "type": null,

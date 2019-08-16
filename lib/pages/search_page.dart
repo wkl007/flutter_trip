@@ -231,11 +231,12 @@ class _SearchPageState extends State<SearchPage> {
     //'wordwoc'.split('w') -> [, ord, oc]
     int preIndex = 0;
     for (int i = 0; i < arr.length; i++) {
-      if ((i + 1) % 2 == 0) {
+      if (i != 0) {
         //搜索关键字高亮忽略大小写
         preIndex = wordL.indexOf(keywordL, preIndex);
         spans.add(TextSpan(
-            text: word.substring(preIndex, preIndex + 1), style: keywordStyle));
+            text: word.substring(preIndex, preIndex + keyword.length),
+            style: keywordStyle));
       }
       String val = arr[i];
       if (val != null && val.length > 0) {
