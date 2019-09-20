@@ -30,12 +30,12 @@
 ## 插件使用
 
 - [azlistview ^0.1.2](https://pub.flutter-io.cn/packages/azlistview)
-- [cached_network_image ^0.8.0](https://pub.flutter-io.cn/packages/cached_network_image)
-- [dio ^2.1.7](https://pub.flutter-io.cn/packages/dio)
+- [cached_network_image ^1.1.1](https://pub.flutter-io.cn/packages/cached_network_image)
+- [dio ^3.0.0](https://pub.flutter-io.cn/packages/dio)
 - [flutter_swiper ^1.1.6](https://pub.flutter-io.cn/packages/flutter_swiper)
 - [flutter_staggered_grid_view ^0.3.0](https://pub.flutter-io.cn/packages/flutter_staggered_grid_view)
 - [flutter_splash_screen ^0.1.0](https://pub.flutter-io.cn/packages/flutter_splash_screen)
-- [flutter_webview_plugin ^0.3.5](https://pub.flutter-io.cn/packages/flutter_webview_plugin)
+- [flutter_webview_plugin ^0.3.8](https://pub.flutter-io.cn/packages/flutter_webview_plugin)
 
 ## 运行调试
 
