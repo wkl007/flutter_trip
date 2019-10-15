@@ -31,7 +31,7 @@
 
 - [azlistview ^0.1.2](https://pub.flutter-io.cn/packages/azlistview)
 - [cached_network_image ^1.1.1](https://pub.flutter-io.cn/packages/cached_network_image)
-- [dio ^3.0.0](https://pub.flutter-io.cn/packages/dio)
+- [dio ^3.0.3](https://pub.flutter-io.cn/packages/dio)
 - [flutter_swiper ^1.1.6](https://pub.flutter-io.cn/packages/flutter_swiper)
 - [flutter_staggered_grid_view ^0.3.0](https://pub.flutter-io.cn/packages/flutter_staggered_grid_view)
 - [flutter_splash_screen ^0.1.0](https://pub.flutter-io.cn/packages/flutter_splash_screen)
