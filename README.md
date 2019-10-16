@@ -1,6 +1,6 @@
 # flutter_trip
 
-[仿携程网App](https://coding.imooc.com/class/321.html)，基于Flutter暂支持Android平台。希望大家多多支持[CrazyCodeBoy老师](<http://www.imooc.com/t/4951150>)
+[慕课网仿携程网App](https://coding.imooc.com/class/321.html)，基于Flutter支持Android与iOS平台。
 
 ## 目录
 
