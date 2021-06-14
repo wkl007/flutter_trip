@@ -227,7 +227,7 @@ class _SearchPageState extends State<SearchPage> {
         );
       }
       String val = arr[i];
-      if (val != null && val.length > 0) {
+      if (val.length > 0) {
         spans.add(TextSpan(text: val, style: normalStyle));
       }
     }

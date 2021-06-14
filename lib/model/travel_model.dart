@@ -1,11 +1,11 @@
 /// 旅拍页模型
 class TravelModel {
-  int? totalCount;
-  List<TravelItem>? resultList;
+  late final int totalCount;
+  late final List<TravelItem> resultList;
 
   TravelModel({
-    this.totalCount,
-    this.resultList,
+    required this.totalCount,
+    required this.resultList,
   });
 
   TravelModel.fromJson(Map<String, dynamic> json) {
@@ -21,95 +21,90 @@ class TravelModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['totalCount'] = this.totalCount;
-    if (this.resultList != null) {
-      data['resultList'] = this.resultList!.map((v) => v.toJson()).toList();
-    }
+    data['resultList'] = this.resultList.map((v) => v.toJson()).toList();
     return data;
   }
 }
 
 class TravelItem {
-  int? type;
-  Article? article;
+  late final int type;
+  late final Article article;
 
   TravelItem({
-    this.type,
-    this.article,
+    required this.type,
+    required this.article,
   });
 
   TravelItem.fromJson(Map<String, dynamic> json) {
     type = json['type'];
-    article =
-        json['article'] != null ? new Article.fromJson(json['article']) : null;
+    article = new Article.fromJson(json['article']);
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['type'] = this.type;
-    if (this.article != null) {
-      data['article'] = this.article!.toJson();
-    }
+    data['article'] = this.article.toJson();
     return data;
   }
 }
 
 class Article {
-  int? articleId;
-  String? articleType;
-  int? productType;
-  int? sourceType;
-  String? articleTitle;
-  Author? author;
-  List<Images>? images;
-  bool? hasVideo;
-  int? readCount;
-  int? likeCount;
-  int? commentCount;
-  List<Urls>? urls;
-  List<Null>? tags;
-  List<Topics>? topics;
-  List<Pois>? pois;
-  String? publishTime;
-  String? publishTimeDisplay;
-  String? shootTime;
-  String? shootTimeDisplay;
-  int? level;
-  String? distanceText;
-  bool? isLike;
-  int? imageCounts;
-  bool? isCollected;
-  int? collectCount;
-  int? articleStatus;
-  String? poiName;
+  late final int articleId;
+  late final String articleType;
+  late final int productType;
+  late final int sourceType;
+  late final String articleTitle;
+  late final Author author;
+  late final List<Images> images;
+  late final bool hasVideo;
+  late final int readCount;
+  late final int likeCount;
+  late final int commentCount;
+  late final List<Urls> urls;
+  late final List<Null> tags;
+  late final List<Topics> topics;
+  late final List<Pois> pois;
+  late final String publishTime;
+  late final String publishTimeDisplay;
+  late final String shootTime;
+  late final String shootTimeDisplay;
+  late final int level;
+  late final String distanceText;
+  late final bool isLike;
+  late final int imageCounts;
+  late final bool isCollected;
+  late final int collectCount;
+  late final int articleStatus;
+  late final String poiName;
 
   Article({
-    this.articleId,
-    this.articleType,
-    this.productType,
-    this.sourceType,
-    this.articleTitle,
-    this.author,
-    this.images,
-    this.hasVideo,
-    this.readCount,
-    this.likeCount,
-    this.commentCount,
-    this.urls,
-    this.tags,
-    this.topics,
-    this.pois,
-    this.publishTime,
-    this.publishTimeDisplay,
-    this.shootTime,
-    this.shootTimeDisplay,
-    this.level,
-    this.distanceText,
-    this.isLike,
-    this.imageCounts,
-    this.isCollected,
-    this.collectCount,
-    this.articleStatus,
-    this.poiName,
+    required this.articleId,
+    required this.articleType,
+    required this.productType,
+    required this.sourceType,
+    required this.articleTitle,
+    required this.author,
+    required this.images,
+    required this.hasVideo,
+    required this.readCount,
+    required this.likeCount,
+    required this.commentCount,
+    required this.urls,
+    required this.tags,
+    required this.topics,
+    required this.pois,
+    required this.publishTime,
+    required this.publishTimeDisplay,
+    required this.shootTime,
+    required this.shootTimeDisplay,
+    required this.level,
+    required this.distanceText,
+    required this.isLike,
+    required this.imageCounts,
+    required this.isCollected,
+    required this.collectCount,
+    required this.articleStatus,
+    required this.poiName,
   });
 
   Article.fromJson(Map<String, dynamic> json) {
@@ -118,17 +113,13 @@ class Article {
     productType = json['productType'];
     sourceType = json['sourceType'];
     articleTitle = json['articleTitle'];
-    author =
-        json['author'] != null ? new Author.fromJson(json['author']) : null;
+    author = new Author.fromJson(json['author']);
     if (json['images'] != null) {
       List<Images> images = [];
       json['images'].forEach((v) {
         images.add(new Images.fromJson(v));
       });
     }
-    hasVideo = json['hasVideo'];
-    readCount = json['readCount'];
-    likeCount = json['likeCount'];
     commentCount = json['commentCount'];
     if (json['urls'] != null) {
       List<Urls> urls = [];
@@ -170,25 +161,15 @@ class Article {
     data['productType'] = this.productType;
     data['sourceType'] = this.sourceType;
     data['articleTitle'] = this.articleTitle;
-    if (this.author != null) {
-      data['author'] = this.author!.toJson();
-    }
-    if (this.images != null) {
-      data['images'] = this.images!.map((v) => v.toJson()).toList();
-    }
+    data['author'] = this.author.toJson();
+    data['images'] = this.images.map((v) => v.toJson()).toList();
     data['hasVideo'] = this.hasVideo;
     data['readCount'] = this.readCount;
     data['likeCount'] = this.likeCount;
     data['commentCount'] = this.commentCount;
-    if (this.urls != null) {
-      data['urls'] = this.urls!.map((v) => v.toJson()).toList();
-    }
-    if (this.topics != null) {
-      data['topics'] = this.topics!.map((v) => v.toJson()).toList();
-    }
-    if (this.pois != null) {
-      data['pois'] = this.pois!.map((v) => v.toJson()).toList();
-    }
+    data['urls'] = this.urls.map((v) => v.toJson()).toList();
+    data['topics'] = this.topics.map((v) => v.toJson()).toList();
+    data['pois'] = this.pois.map((v) => v.toJson()).toList();
     data['publishTime'] = this.publishTime;
     data['publishTimeDisplay'] = this.publishTimeDisplay;
     data['shootTime'] = this.shootTime;
@@ -206,22 +187,22 @@ class Article {
 }
 
 class Author {
-  int? authorId;
-  String? nickName;
-  String? clientAuth;
-  String? jumpUrl;
-  CoverImage? coverImage;
-  int? identityType;
-  String? tag;
+  late final int authorId;
+  late final String nickName;
+  late final String clientAuth;
+  late final String jumpUrl;
+  late final CoverImage coverImage;
+  late final int identityType;
+  late final String tag;
 
   Author({
-    this.authorId,
-    this.nickName,
-    this.clientAuth,
-    this.jumpUrl,
-    this.coverImage,
-    this.identityType,
-    this.tag,
+    required this.authorId,
+    required this.nickName,
+    required this.clientAuth,
+    required this.jumpUrl,
+    required this.coverImage,
+    required this.identityType,
+    required this.tag,
   });
 
   Author.fromJson(Map<String, dynamic> json) {
@@ -229,9 +210,7 @@ class Author {
     nickName = json['nickName'];
     clientAuth = json['clientAuth'];
     jumpUrl = json['jumpUrl'];
-    coverImage = json['coverImage'] != null
-        ? new CoverImage.fromJson(json['coverImage'])
-        : null;
+    coverImage = new CoverImage.fromJson(json['coverImage']);
     identityType = json['identityType'];
     tag = json['tag'];
   }
@@ -242,9 +221,7 @@ class Author {
     data['nickName'] = this.nickName;
     data['clientAuth'] = this.clientAuth;
     data['jumpUrl'] = this.jumpUrl;
-    if (this.coverImage != null) {
-      data['coverImage'] = this.coverImage!.toJson();
-    }
+    data['coverImage'] = this.coverImage.toJson();
     data['identityType'] = this.identityType;
     data['tag'] = this.tag;
     return data;
@@ -252,12 +229,12 @@ class Author {
 }
 
 class CoverImage {
-  String? dynamicUrl;
-  String? originalUrl;
+  late final String dynamicUrl;
+  late final String originalUrl;
 
   CoverImage({
-    this.dynamicUrl,
-    this.originalUrl,
+    required this.dynamicUrl,
+    required this.originalUrl,
   });
 
   CoverImage.fromJson(Map<String, dynamic> json) {
@@ -274,22 +251,22 @@ class CoverImage {
 }
 
 class Images {
-  int? imageId;
-  String? dynamicUrl;
-  String? originalUrl;
-  double? width;
-  double? height;
-  int? mediaType;
-  bool? isWaterMarked;
+  late final int imageId;
+  late final String dynamicUrl;
+  late final String originalUrl;
+  late final double width;
+  late final double height;
+  late final int mediaType;
+  late final bool isWaterMarked;
 
   Images({
-    this.imageId,
-    this.dynamicUrl,
-    this.originalUrl,
-    this.width,
-    this.height,
-    this.mediaType,
-    this.isWaterMarked,
+    required this.imageId,
+    required this.dynamicUrl,
+    required this.originalUrl,
+    required this.width,
+    required this.height,
+    required this.mediaType,
+    required this.isWaterMarked,
   });
 
   Images.fromJson(Map<String, dynamic> json) {
@@ -316,16 +293,16 @@ class Images {
 }
 
 class Urls {
-  String? version;
-  String? appUrl;
-  String? h5Url;
-  String? wxUrl;
+  late final String version;
+  late final String appUrl;
+  late final String h5Url;
+  late final String wxUrl;
 
   Urls({
-    this.version,
-    this.appUrl,
-    this.h5Url,
-    this.wxUrl,
+    required this.version,
+    required this.appUrl,
+    required this.h5Url,
+    required this.wxUrl,
   });
 
   Urls.fromJson(Map<String, dynamic> json) {
@@ -346,14 +323,14 @@ class Urls {
 }
 
 class Topics {
-  int? topicId;
-  String? topicName;
-  int? level;
+  late final int topicId;
+  late final String topicName;
+  late final int level;
 
   Topics({
-    this.topicId,
-    this.topicName,
-    this.level,
+    required this.topicId,
+    required this.topicName,
+    required this.level,
   });
 
   Topics.fromJson(Map<String, dynamic> json) {
@@ -372,28 +349,28 @@ class Topics {
 }
 
 class Pois {
-  int? poiType;
-  int? poiId;
-  String? poiName;
-  int? businessId;
-  int? districtId;
-  PoiExt? poiExt;
-  int? source;
-  int? isMain;
-  bool? isInChina;
-  String? countryName;
+  late final int poiType;
+  late final int poiId;
+  late final String poiName;
+  late final int businessId;
+  late final int districtId;
+  late final PoiExt poiExt;
+  late final int source;
+  late final int isMain;
+  late final bool isInChina;
+  late final String countryName;
 
   Pois({
-    this.poiType,
-    this.poiId,
-    this.poiName,
-    this.businessId,
-    this.districtId,
-    this.poiExt,
-    this.source,
-    this.isMain,
-    this.isInChina,
-    this.countryName,
+    required this.poiType,
+    required this.poiId,
+    required this.poiName,
+    required this.businessId,
+    required this.districtId,
+    required this.poiExt,
+    required this.source,
+    required this.isMain,
+    required this.isInChina,
+    required this.countryName,
   });
 
   Pois.fromJson(Map<String, dynamic> json) {
@@ -402,8 +379,7 @@ class Pois {
     poiName = json['poiName'];
     businessId = json['businessId'];
     districtId = json['districtId'];
-    poiExt =
-        json['poiExt'] != null ? new PoiExt.fromJson(json['poiExt']) : null;
+    poiExt = new PoiExt.fromJson(json['poiExt']);
     source = json['source'];
     isMain = json['isMain'];
     isInChina = json['isInChina'];
@@ -417,9 +393,7 @@ class Pois {
     data['poiName'] = this.poiName;
     data['businessId'] = this.businessId;
     data['districtId'] = this.districtId;
-    if (this.poiExt != null) {
-      data['poiExt'] = this.poiExt!.toJson();
-    }
+    data['poiExt'] = this.poiExt.toJson();
     data['source'] = this.source;
     data['isMain'] = this.isMain;
     data['isInChina'] = this.isInChina;
@@ -429,10 +403,10 @@ class Pois {
 }
 
 class PoiExt {
-  String? h5Url;
-  String? appUrl;
+  late final String h5Url;
+  late final String appUrl;
 
-  PoiExt({this.h5Url, this.appUrl});
+  PoiExt({required this.h5Url, required this.appUrl});
 
   PoiExt.fromJson(Map<String, dynamic> json) {
     h5Url = json['h5Url'];
