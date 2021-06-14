@@ -1,9 +1,9 @@
 /// 搜索模型
 class SearchModel {
   String? keyword;
-  final List<SearchItem>? data;
+  final List<SearchItem> data;
 
-  SearchModel({this.keyword, this.data});
+  SearchModel({this.keyword, required this.data});
 
   factory SearchModel.fromJson(Map<String, dynamic> json) {
     var dataJson = json['data'] as List;
@@ -14,32 +14,32 @@ class SearchModel {
 }
 
 class SearchItem {
-  final String? word;
+  final String word;
   final String? type;
   final String? price;
   final String? star;
   final String? zonename;
   final String? districtname;
-  final String? url;
+  final String url;
 
   SearchItem({
-    this.word,
+    required this.word,
     this.type,
     this.price,
     this.star,
     this.zonename,
     this.districtname,
-    this.url,
+    required this.url,
   });
 
   factory SearchItem.fromJson(Map<String, dynamic> json) {
     return SearchItem(
       word: json['word'],
-      type: json['type'],
-      price: json['price'],
-      star: json['star'],
-      zonename: json['zonename'],
-      districtname: json['districtname'],
+      type: json['type'] ?? '',
+      price: json['price'] ?? '',
+      star: json['star'] ?? '',
+      zonename: json['zonename'] ?? '',
+      districtname: json['districtname'] ?? '',
       url: json['url'],
     );
   }

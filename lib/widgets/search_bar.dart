@@ -22,7 +22,7 @@ class SearchBar extends StatefulWidget {
     this.enabled = true,
     this.hideLeft,
     this.autofocus = false,
-    this.searchBarType,
+    this.searchBarType = SearchBarType.normal,
     this.hint,
     required this.defaultText,
     required this.leftButtonClick,
@@ -107,7 +107,7 @@ class _SearchBarState extends State<SearchBar> {
   Widget get _genHomeSearch {
     return Container(
       child: Row(
-        children: <Widget>[
+        children: [
           _wrapTap(
             Container(
               padding: EdgeInsets.fromLTRB(6, 5, 5, 5),
@@ -196,7 +196,11 @@ class _SearchBarState extends State<SearchBar> {
                       fontWeight: FontWeight.w300,
                     ),
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                      contentPadding: EdgeInsets.only(
+                        left: 5,
+                        bottom: 13,
+                        right: 5,
+                      ),
                       border: InputBorder.none,
                       hintText: widget.hint ?? '',
                       hintStyle: TextStyle(fontSize: 15),
