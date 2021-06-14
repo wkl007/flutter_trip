@@ -16,11 +16,11 @@ class CommonModel {
 
   factory CommonModel.fromJson(Map<String, dynamic> json) {
     return CommonModel(
-      icon: json['icon'],
-      title: json['title'],
-      url: json['url'],
-      statusBarColor: json['statusBarColor'],
-      hideAppBar: json['hideAppBar'],
+      icon: json['icon'] ?? '',
+      title: json['title'] ?? '',
+      url: json['url'] ?? '',
+      statusBarColor: json['statusBarColor'] ?? '',
+      hideAppBar: json['hideAppBar'] ?? false,
     );
   }
 }

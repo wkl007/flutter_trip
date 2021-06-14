@@ -6,11 +6,11 @@ import 'package:flutter_trip/widgets/cached_image.dart';
 import 'package:flutter_trip/widgets/webview.dart';
 
 class SalesBox extends StatelessWidget {
-  final SalesBoxModel salesBox;
+  final SalesBoxModel? salesBox;
 
   const SalesBox({
     Key? key,
-    required this.salesBox,
+    this.salesBox,
   }) : super(key: key);
 
   Widget _items(BuildContext context) {
@@ -18,8 +18,8 @@ class SalesBox extends StatelessWidget {
     items.add(
       _doubleItem(
         context,
-        salesBox.bigCard1,
-        salesBox.bigCard2,
+        salesBox!.bigCard1,
+        salesBox!.bigCard2,
         true,
         false,
       ),
@@ -27,8 +27,8 @@ class SalesBox extends StatelessWidget {
     items.add(
       _doubleItem(
         context,
-        salesBox.smallCard1,
-        salesBox.smallCard2,
+        salesBox!.smallCard1,
+        salesBox!.smallCard2,
         false,
         false,
       ),
@@ -36,8 +36,8 @@ class SalesBox extends StatelessWidget {
     items.add(
       _doubleItem(
         context,
-        salesBox.smallCard3,
-        salesBox.smallCard4,
+        salesBox!.smallCard3,
+        salesBox!.smallCard4,
         false,
         true,
       ),
@@ -54,7 +54,7 @@ class SalesBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               CachedImage(
-                imageUrl: salesBox.icon,
+                imageUrl: salesBox!.icon,
                 height: 15,
                 fit: BoxFit.fill,
               ),
@@ -75,7 +75,7 @@ class SalesBox extends StatelessWidget {
                     NavigatorUtil.push(
                       context,
                       Webview(
-                        initialUrl: salesBox.moreUrl,
+                        initialUrl: salesBox!.moreUrl,
                         title: '更多活动',
                       ),
                     );

@@ -5,20 +5,20 @@ import 'package:flutter_trip/model/sales_box_model.dart';
 
 /// 首页模型
 class HomeModel {
-  final ConfigModel? config;
-  final List<CommonModel>? bannerList;
-  final List<CommonModel>? localNavList;
-  final GridNavModel? gridNav;
-  final List<CommonModel>? subNavList;
-  final SalesBoxModel? salesBox;
+  final ConfigModel config;
+  final List<CommonModel> bannerList;
+  final List<CommonModel> localNavList;
+  final GridNavModel gridNav;
+  final List<CommonModel> subNavList;
+  final SalesBoxModel salesBox;
 
   HomeModel({
-    this.config,
-    this.bannerList,
-    this.localNavList,
-    this.gridNav,
-    this.subNavList,
-    this.salesBox,
+    required this.config,
+    required this.bannerList,
+    required this.localNavList,
+    required this.gridNav,
+    required this.subNavList,
+    required this.salesBox,
   });
 
   factory HomeModel.fromJson(Map<String, dynamic> json) {

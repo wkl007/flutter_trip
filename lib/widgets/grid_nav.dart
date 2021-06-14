@@ -6,15 +6,21 @@ import 'package:flutter_trip/widgets/cached_image.dart';
 import 'package:flutter_trip/widgets/webview.dart';
 
 class GridNav extends StatelessWidget {
-  final GridNavModel gridNav;
+  final GridNavModel? gridNav;
 
-  const GridNav({Key? key, required this.gridNav}) : super(key: key);
+  const GridNav({Key? key, this.gridNav}) : super(key: key);
 
   List<Widget> _gridNavItems(BuildContext context) {
     List<Widget> items = [];
-    items.add(_gridNavItem(context, gridNav.hotel, true));
-    items.add(_gridNavItem(context, gridNav.flight, false));
-    items.add(_gridNavItem(context, gridNav.travel, false));
+    if (gridNav?.hotel != null) {
+      items.add(_gridNavItem(context, gridNav!.hotel, true));
+    }
+    if (gridNav?.flight != null) {
+      items.add(_gridNavItem(context, gridNav!.flight, false));
+    }
+    if (gridNav?.travel != null) {
+      items.add(_gridNavItem(context, gridNav!.travel, false));
+    }
 
     return items;
   }
