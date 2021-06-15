@@ -198,7 +198,7 @@ class _SearchBarState extends State<SearchBar> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(
                         left: 5,
-                        bottom: 13,
+                        bottom: 12,
                         right: 5,
                       ),
                       border: InputBorder.none,

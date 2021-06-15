@@ -180,7 +180,7 @@ class _SearchPageState extends State<SearchPage> {
     if (item == null) return null;
     List<TextSpan> spans = [];
 
-    spans.addAll(_keywordTextSpans(item.word, searchModel!.keyword as String));
+    spans.addAll(_keywordTextSpans(item.word, searchModel!.keyword));
     spans.add(
       TextSpan(
           text: ' ' + (item.districtname ?? '') + ' ' + (item.zonename ?? ''),
