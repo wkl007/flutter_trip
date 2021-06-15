@@ -18,7 +18,7 @@ class _TabNavigatorState extends State<TabNavigator> {
   Color _defaultColor = Colors.grey; // 默认颜色
   Color _activeColor = Colors.blue; // 激活态颜色
   int _currentIndex = 0; // 当前索引
-  late DateTime _lastPressedAt; // 上次点击时间
+  DateTime? _lastPressedAt; // 上次点击时间
 
   @override
   void initState() {
@@ -44,8 +44,9 @@ class _TabNavigatorState extends State<TabNavigator> {
   }
 
   // 退出app
-  Future<bool> exitApp() {
-    if (DateTime.now().difference(_lastPressedAt) > Duration(seconds: 2)) {
+  Future<bool> exitApp() async {
+    if (_lastPressedAt == null ||
+        DateTime.now().difference(_lastPressedAt!) > Duration(seconds: 2)) {
       Fluttertoast.showToast(
           msg: "再按一次退出应用",
           backgroundColor: Colors.grey,

@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_trip/model/home_model.dart';
 
 const HOME_URL =
-    'https://apk-1256738511.file.myqcloud.com/FlutterTrip/data/home_page.json';
+    'https://apk-1256738511.cos.ap-chengdu.myqcloud.com/FlutterTrip/data/home_page.json';
 
 /// 首页接口
 class HomeDao {

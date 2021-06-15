@@ -98,7 +98,7 @@ class _CityPageState extends State<CityPage> {
           ),
           InkWell(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pop(context, widget.city);
             },
             child: Padding(
               padding: const EdgeInsets.all(10.0),

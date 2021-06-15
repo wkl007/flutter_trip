@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_trip/model/travel_tab_model.dart';
 
 const TRAVEL_TAB_URL =
-    'https://apk-1256738511.file.myqcloud.com/FlutterTrip/data/travel_page.json';
+    'https://apk-1256738511.cos.ap-chengdu.myqcloud.com/FlutterTrip/data/travel_page.json';
 
 /// 旅拍类别接口
 class TravelTabDao {
