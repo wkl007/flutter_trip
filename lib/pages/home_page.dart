@@ -82,10 +82,7 @@ class _HomePageState extends State<HomePage>
 
   // 跳转到城市列表
   void _jumpToCity() async {
-    String result = await NavigatorUtil.push(
-      context,
-      CityPage(),
-    );
+    String result = await NavigatorUtil.push(context, CityPage(city: city));
     setState(() {
       city = result;
     });
@@ -93,18 +90,12 @@ class _HomePageState extends State<HomePage>
 
   // 跳转搜索页面
   void _jumpToSearch() {
-    NavigatorUtil.push(
-      context,
-      SearchPage(hint: SEARCH_BAR_DEFAULT_TEXT),
-    );
+    NavigatorUtil.push(context, SearchPage(hint: SEARCH_BAR_DEFAULT_TEXT));
   }
 
   // 跳转语音识别页面
   void _jumpToSpeak() {
-    NavigatorUtil.push(
-      context,
-      SpeakPage(),
-    );
+    NavigatorUtil.push(context, SpeakPage());
   }
 
   // 自定义appBar

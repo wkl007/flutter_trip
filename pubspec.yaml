@@ -27,7 +27,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  azlistview: ^1.1.1
+  azlistview: ^2.0.0-nullsafety.0
   cupertino_icons: ^1.0.3
   cached_network_image: ^3.0.0
   dio: ^4.0.0
