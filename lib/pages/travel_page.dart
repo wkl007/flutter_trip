@@ -18,8 +18,8 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    _loadData();
     super.initState();
+    _loadData();
   }
 
   @override

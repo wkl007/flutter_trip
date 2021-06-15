@@ -43,6 +43,7 @@ class _TravelTabPageState extends State<TravelTabPage>
 
   @override
   void initState() {
+    super.initState();
     _loadData();
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
@@ -50,7 +51,6 @@ class _TravelTabPageState extends State<TravelTabPage>
         _loadData(loadMore: true);
       }
     });
-    super.initState();
   }
 
   @override

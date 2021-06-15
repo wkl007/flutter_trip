@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:package_info/package_info.dart';
 import 'package:flutter_trip/pages/home_page.dart';
+import 'package:flutter_trip/pages/my_page.dart';
 import 'package:flutter_trip/pages/search_page.dart';
 import 'package:flutter_trip/pages/travel_page.dart';
-import 'package:flutter_trip/pages/my_page.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:package_info/package_info.dart';
 
 class TabNavigator extends StatefulWidget {
   const TabNavigator({Key? key}) : super(key: key);
@@ -22,8 +22,8 @@ class _TabNavigatorState extends State<TabNavigator> {
 
   @override
   void initState() {
-    getPackageInfo();
     super.initState();
+    getPackageInfo();
   }
 
   @override

@@ -47,10 +47,10 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   void initState() {
+    super.initState();
     if (widget.keyword != null) {
       _onTextChange(widget.keyword as String);
     }
-    super.initState();
   }
 
   //输入框文本更改

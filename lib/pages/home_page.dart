@@ -43,8 +43,8 @@ class _HomePageState extends State<HomePage>
 
   @override
   void initState() {
-    _handleRefresh();
     super.initState();
+    _handleRefresh();
   }
 
   // 判断滚动改变透明度
