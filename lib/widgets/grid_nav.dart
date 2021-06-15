@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trip/model/common_model.dart';
-import 'package:flutter_trip/model/grid_nav_model.dart';
+import 'package:flutter_trip/model/home_model.dart';
 import 'package:flutter_trip/util/navigator_util.dart';
 import 'package:flutter_trip/widgets/cached_image.dart';
 import 'package:flutter_trip/widgets/webview.dart';
@@ -74,7 +73,7 @@ class GridNav extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 11),
             child: Text(
-              model.title,
+              model.title ?? '',
               style: TextStyle(fontSize: 14, color: Colors.white),
             ),
           ),
@@ -123,7 +122,7 @@ class GridNav extends StatelessWidget {
           context,
           Center(
             child: Text(
-              item.title,
+              item.title ?? '',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,

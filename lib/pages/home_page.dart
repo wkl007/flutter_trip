@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 import 'package:flutter_trip/dao/home_dao.dart';
-import 'package:flutter_trip/model/common_model.dart';
-import 'package:flutter_trip/model/grid_nav_model.dart';
 import 'package:flutter_trip/model/home_model.dart';
-import 'package:flutter_trip/model/sales_box_model.dart';
 import 'package:flutter_trip/pages/city_page.dart';
 import 'package:flutter_trip/pages/search_page.dart';
 import 'package:flutter_trip/pages/speak_page.dart';

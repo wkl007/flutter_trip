@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trip/model/common_model.dart';
+import 'package:flutter_trip/model/home_model.dart';
 import 'package:flutter_trip/util/navigator_util.dart';
 import 'package:flutter_trip/widgets/cached_image.dart';
 import 'package:flutter_trip/widgets/webview.dart';
@@ -64,7 +64,7 @@ class SubNav extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 3),
               child: Text(
-                model.title,
+                model.title ?? '',
                 style: TextStyle(fontSize: 12),
               ),
             ),
