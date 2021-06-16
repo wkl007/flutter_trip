@@ -45,9 +45,9 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         ndk {
-            // abiFilters "armeabi-v7a", "arm64-v8a", "x86_64", "x86"
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64", "x86"
             // TODO 只打包flutter所支持的架构，flutter没有armeabi架构的so，加x86的原因是为了能够兼容模拟器
-            abiFilters "armeabi-v7a" // release 时只打"armeabi-v7包
+            // abiFilters "armeabi-v7a" // release 时只打"armeabi-v7包
         }
     }
 
@@ -64,9 +64,11 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            //关闭混淆
-            minifyEnabled false // 删除无用代码
-            shrinkResources false // 删除无用资源
+            // 开启混淆
+            minifyEnabled true // 启用代码混淆、压缩APK
+            shrinkResources true // 删除无用资源
+            useProguard true // 代码压缩设置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro' // 混淆文件
             signingConfig signingConfigs.release
         }
     }
