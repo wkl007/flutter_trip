@@ -28,16 +28,16 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   azlistview: ^2.0.0-nullsafety.0
-  cupertino_icons: ^1.0.3
-  cached_network_image: ^3.0.0
-  dio: ^4.0.0
+  cupertino_icons: ^1.0.4
+  cached_network_image: ^3.1.0+1
+  dio: ^4.0.3
   flutter_card_swipper: ^0.4.0
-  flutter_staggered_grid_view: ^0.4.0
-  fluttertoast: ^8.0.7
-  webview_flutter: ^2.0.10
+  flutter_staggered_grid_view: ^0.4.1
+  fluttertoast: ^8.0.8
+  webview_flutter: ^2.3.1
   lpinyin: ^2.0.3
   package_info: ^2.0.2
-  umeng_common_sdk: ^1.2.0
+  umeng_common_sdk: ^1.2.4
 
 dev_dependencies:
   flutter_test:
